@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- minimal-1 "Minimal Active Fizz" - Watch Face Format v1. Plain ASCII only. -->
+<!-- minimal-active-fizz "Minimal Active Fizz" - Watch Face Format v1. Plain ASCII only. -->
 <WatchFace width="456" height="456" clipShape="CIRCLE">
   <Metadata key="CLOCK_TYPE" value="DIGITAL"/>
   <Metadata key="PREVIEW_TIME" value="10:09:00"/>
@@ -3344,14 +3344,44 @@
             </Ellipse>
           </PartDraw>
         </Group>
-        <PartImage name="ic_shoe" x="30" y="16" width="39" height="39" tintColor="#0682EB" alpha="255">
-          <Variant mode="AMBIENT" target="alpha" value="0"/>
-          <Image resource="ic_shoe"/>
-        </PartImage>
-        <PartImage name="ic_shoe_a" x="30" y="16" width="39" height="39" tintColor="#FFFFFF" alpha="0">
-          <Variant mode="AMBIENT" target="alpha" value="255"/>
-          <Image resource="ic_shoe"/>
-        </PartImage>
+        <Condition>
+          <Expressions>
+            <Expression name="steps_has_icon"><![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+          </Expressions>
+          <Compare expression="steps_has_icon">
+            <Group name="steps_icon_m" x="30" y="16" width="39" height="39" alpha="255" scaleX="0.85" scaleY="0.85" pivotX="0.5" pivotY="0.5">
+              <PartDraw name="steps_icon_fill_b" x="0" y="0" width="39" height="39" alpha="255" renderMode="SOURCE">
+                <Variant mode="AMBIENT" target="alpha" value="0"/>
+                <Rectangle x="0" y="0" width="39" height="39">
+                  <Fill color="#0682EB"/>
+                </Rectangle>
+              </PartDraw>
+              <PartDraw name="steps_icon_fill_w" x="0" y="0" width="39" height="39" alpha="0" renderMode="SOURCE">
+                <Variant mode="AMBIENT" target="alpha" value="255"/>
+                <Rectangle x="0" y="0" width="39" height="39">
+                  <Fill color="#FFFFFF"/>
+                </Rectangle>
+              </PartDraw>
+              <PartImage name="steps_icon_mask" x="0" y="0" width="39" height="39" renderMode="MASK">
+                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]"/>
+              </PartImage>
+            </Group>
+          </Compare>
+          <Default>
+            <PartDraw name="steps_icon_fb" x="0" y="0" width="98" height="98" alpha="255">
+              <Variant mode="AMBIENT" target="alpha" value="0"/>
+              <Ellipse x="39" y="25" width="22" height="22">
+                <Stroke color="#0682EB" thickness="1.15"/>
+              </Ellipse>
+            </PartDraw>
+            <PartDraw name="steps_icon_fb_a" x="0" y="0" width="98" height="98" alpha="0">
+              <Variant mode="AMBIENT" target="alpha" value="255"/>
+              <Ellipse x="39" y="25" width="22" height="22">
+                <Stroke color="#FFFFFF" thickness="1.15"/>
+              </Ellipse>
+            </PartDraw>
+          </Default>
+        </Condition>
         <PartText name="steps_value" x="1" y="50" width="96" height="32" alpha="255">
           <Text align="CENTER">
             <Font family="Roboto" size="24" color="#FFFFFF" weight="EXTRA_LIGHT">
@@ -3379,90 +3409,176 @@
         </PartText>
       </Complication>
     </ComplicationSlot>
-    <!-- Heart rate: direct [HEART_RATE] source (no system HR complication exists).
-         Orange ring always visible; shows the reading when available, or a dash
-         placeholder when the sensor/permission is unavailable (e.g. the
-         sensorless emulator). BODY_SENSORS is declared in the manifest. -->
-    <Group name="heart" x="0" y="0" width="456" height="456" alpha="255" scaleX="1.15" scaleY="1.15" pivotX="0.8026" pivotY="0.5219">
-      <Group name="heart_deco" x="0" y="0" width="456" height="456" alpha="255">
-        <Variant mode="AMBIENT" target="alpha" value="0"/>
-        <PartDraw name="heart_circle" x="0" y="0" width="456" height="456">
-          <Ellipse x="324" y="196" width="84" height="84">
-            <Stroke color="#F26C21" thickness="1"/>
+    <!-- Heart rate: reassignable complication slot, defaults to the system
+         HEART_RATE provider. Orange ring always visible; the provider's icon is
+         recolored orange via a MASK (small orange ring fallback when the
+         provider supplies no icon); value from [COMPLICATION.TEXT]. -->
+    <ComplicationSlot name="heart" slotId="2" x="318" y="190" width="98" height="98"
+        supportedTypes="SHORT_TEXT" isCustomizable="TRUE" displayName="HEART_RATE">
+      <DefaultProviderPolicy defaultSystemProvider="HEART_RATE" defaultSystemProviderType="SHORT_TEXT"/>
+      <BoundingOval x="0" y="0" width="98" height="98"/>
+      <Complication type="SHORT_TEXT">
+        <Group name="heart_deco" x="0" y="0" width="98" height="98" alpha="255">
+          <Variant mode="AMBIENT" target="alpha" value="0"/>
+          <PartDraw name="heart_circle" x="0" y="0" width="98" height="98">
+            <Ellipse x="1" y="1" width="96" height="96">
+              <Stroke color="#F26C21" thickness="1.15"/>
+            </Ellipse>
+          </PartDraw>
+        </Group>
+        <Condition>
+          <Expressions>
+            <Expression name="heart_has_icon"><![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+          </Expressions>
+          <Compare expression="heart_has_icon">
+            <Group name="heart_icon_m" x="30" y="16" width="39" height="39" alpha="255" scaleX="0.85" scaleY="0.85" pivotX="0.5" pivotY="0.5">
+              <PartDraw name="heart_icon_fill_o" x="0" y="0" width="39" height="39" alpha="255" renderMode="SOURCE">
+                <Variant mode="AMBIENT" target="alpha" value="0"/>
+                <Rectangle x="0" y="0" width="39" height="39">
+                  <Fill color="#F26C21"/>
+                </Rectangle>
+              </PartDraw>
+              <PartDraw name="heart_icon_fill_w" x="0" y="0" width="39" height="39" alpha="0" renderMode="SOURCE">
+                <Variant mode="AMBIENT" target="alpha" value="255"/>
+                <Rectangle x="0" y="0" width="39" height="39">
+                  <Fill color="#FFFFFF"/>
+                </Rectangle>
+              </PartDraw>
+              <PartImage name="heart_icon_mask" x="0" y="0" width="39" height="39" renderMode="MASK">
+                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]"/>
+              </PartImage>
+            </Group>
+          </Compare>
+          <Default>
+            <PartDraw name="heart_icon_fb" x="0" y="0" width="98" height="98" alpha="255">
+              <Variant mode="AMBIENT" target="alpha" value="0"/>
+              <Ellipse x="39" y="25" width="22" height="22">
+                <Stroke color="#F26C21" thickness="1.15"/>
+              </Ellipse>
+            </PartDraw>
+            <PartDraw name="heart_icon_fb_a" x="0" y="0" width="98" height="98" alpha="0">
+              <Variant mode="AMBIENT" target="alpha" value="255"/>
+              <Ellipse x="39" y="25" width="22" height="22">
+                <Stroke color="#FFFFFF" thickness="1.15"/>
+              </Ellipse>
+            </PartDraw>
+          </Default>
+        </Condition>
+        <PartText name="heart_value" x="1" y="50" width="96" height="32" alpha="255">
+          <Text align="CENTER">
+            <Font family="Roboto" size="24" color="#FFFFFF" weight="EXTRA_LIGHT">
+              <Template>%s<Parameter expression="[COMPLICATION.TEXT]"/></Template>
+            </Font>
+          </Text>
+        </PartText>
+      </Complication>
+      <Complication type="EMPTY">
+        <Group name="heart_edeco" x="0" y="0" width="98" height="98" alpha="255">
+          <Variant mode="AMBIENT" target="alpha" value="0"/>
+          <PartDraw name="heart_ecircle" x="0" y="0" width="98" height="98">
+            <Ellipse x="1" y="1" width="96" height="96">
+              <Stroke color="#767B80" thickness="1.15"/>
+            </Ellipse>
+          </PartDraw>
+        </Group>
+        <PartDraw name="heart_efb" x="0" y="0" width="98" height="98" alpha="255">
+          <Variant mode="AMBIENT" target="alpha" value="0"/>
+          <Ellipse x="39" y="25" width="22" height="22">
+            <Stroke color="#767B80" thickness="1.15"/>
           </Ellipse>
         </PartDraw>
-      </Group>
-      <PartImage name="ic_heart" x="353" y="212" width="26" height="26" tintColor="#F26C21" alpha="255">
-        <Variant mode="AMBIENT" target="alpha" value="0"/>
-        <Image resource="ic_heart"/>
-      </PartImage>
-      <PartImage name="ic_heart_a" x="353" y="212" width="26" height="26" tintColor="#FFFFFF" alpha="0">
-        <Variant mode="AMBIENT" target="alpha" value="255"/>
-        <Image resource="ic_heart"/>
-      </PartImage>
-      <Condition>
-        <Expressions>
-          <Expression name="hr_ok"><![CDATA[[HEART_RATE] > 0]]></Expression>
-        </Expressions>
-        <Compare expression="hr_ok">
-          <PartText name="heart_value" x="324" y="239" width="84" height="28" alpha="255">
-            <Text align="CENTER">
-              <Font family="Roboto" size="24" color="#FFFFFF" weight="EXTRA_LIGHT">
-                <Template>%d<Parameter expression="[HEART_RATE]"/></Template>
-              </Font>
-            </Text>
-          </PartText>
-        </Compare>
-        <Default>
-          <PartText name="heart_value_na" x="324" y="239" width="84" height="28" alpha="255">
-            <Text align="CENTER">
-              <Font family="Roboto" size="24" color="#FFFFFF" weight="EXTRA_LIGHT">--</Font>
-            </Text>
-          </PartText>
-        </Default>
-      </Condition>
-    </Group>
-    <Group name="battery" x="0" y="0" width="456" height="456" alpha="255" scaleX="1.15" scaleY="1.15" pivotX="0.5" pivotY="0.9035">
-      <Group name="battery_deco" x="0" y="0" width="456" height="456" alpha="255">
-        <Variant mode="AMBIENT" target="alpha" value="0"/>
-        <PartDraw name="battery_circle" x="0" y="0" width="456" height="456">
-          <Ellipse x="194" y="378" width="68" height="68">
-            <Stroke color="#0682EB" thickness="1"/>
+        <PartText name="heart_evalue" x="1" y="50" width="96" height="32" alpha="255">
+          <Text align="CENTER">
+            <Font family="Roboto" size="24" color="#FFFFFF" weight="EXTRA_LIGHT">--</Font>
+          </Text>
+        </PartText>
+      </Complication>
+    </ComplicationSlot>
+    <!-- Battery: reassignable complication slot, defaults to the system
+         WATCH_BATTERY provider. Blue ring; the provider's icon is recolored
+         blue via a MASK (small blue ring fallback when the provider supplies no
+         icon); value from [COMPLICATION.TEXT] (e.g. "86%"). -->
+    <ComplicationSlot name="battery" slotId="3" x="189" y="373" width="78" height="78"
+        supportedTypes="SHORT_TEXT" isCustomizable="TRUE" displayName="BATTERY">
+      <DefaultProviderPolicy defaultSystemProvider="WATCH_BATTERY" defaultSystemProviderType="SHORT_TEXT"/>
+      <BoundingOval x="0" y="0" width="78" height="78"/>
+      <Complication type="SHORT_TEXT">
+        <Group name="battery_deco" x="0" y="0" width="78" height="78" alpha="255">
+          <Variant mode="AMBIENT" target="alpha" value="0"/>
+          <PartDraw name="battery_circle" x="0" y="0" width="78" height="78">
+            <Ellipse x="1" y="1" width="76" height="76">
+              <Stroke color="#0682EB" thickness="1"/>
+            </Ellipse>
+          </PartDraw>
+        </Group>
+        <Condition>
+          <Expressions>
+            <Expression name="batt_has_icon"><![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+          </Expressions>
+          <Compare expression="batt_has_icon">
+            <Group name="batt_icon_m" x="24" y="13" width="31" height="31" alpha="255" scaleX="0.85" scaleY="0.85" pivotX="0.5" pivotY="0.5">
+              <PartDraw name="batt_icon_fill_b" x="0" y="0" width="31" height="31" alpha="255" renderMode="SOURCE">
+                <Variant mode="AMBIENT" target="alpha" value="0"/>
+                <Rectangle x="0" y="0" width="31" height="31">
+                  <Fill color="#0682EB"/>
+                </Rectangle>
+              </PartDraw>
+              <PartDraw name="batt_icon_fill_w" x="0" y="0" width="31" height="31" alpha="0" renderMode="SOURCE">
+                <Variant mode="AMBIENT" target="alpha" value="255"/>
+                <Rectangle x="0" y="0" width="31" height="31">
+                  <Fill color="#FFFFFF"/>
+                </Rectangle>
+              </PartDraw>
+              <PartImage name="batt_icon_mask" x="0" y="0" width="31" height="31" renderMode="MASK">
+                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]"/>
+              </PartImage>
+            </Group>
+          </Compare>
+          <Default>
+            <PartDraw name="batt_icon_fb" x="0" y="0" width="78" height="78" alpha="255">
+              <Variant mode="AMBIENT" target="alpha" value="0"/>
+              <Ellipse x="31" y="20" width="17" height="17">
+                <Stroke color="#0682EB" thickness="1"/>
+              </Ellipse>
+            </PartDraw>
+            <PartDraw name="batt_icon_fb_a" x="0" y="0" width="78" height="78" alpha="0">
+              <Variant mode="AMBIENT" target="alpha" value="255"/>
+              <Ellipse x="31" y="20" width="17" height="17">
+                <Stroke color="#FFFFFF" thickness="1"/>
+              </Ellipse>
+            </PartDraw>
+          </Default>
+        </Condition>
+        <PartText name="battery_value" x="1" y="40" width="76" height="26" alpha="255">
+          <Text align="CENTER">
+            <Font family="Roboto" size="22" color="#FFFFFF" weight="EXTRA_LIGHT">
+              <Template>%s<Parameter expression="[COMPLICATION.TEXT]"/></Template>
+            </Font>
+          </Text>
+        </PartText>
+      </Complication>
+      <Complication type="EMPTY">
+        <Group name="battery_edeco" x="0" y="0" width="78" height="78" alpha="255">
+          <Variant mode="AMBIENT" target="alpha" value="0"/>
+          <PartDraw name="battery_ecircle" x="0" y="0" width="78" height="78">
+            <Ellipse x="1" y="1" width="76" height="76">
+              <Stroke color="#767B80" thickness="1"/>
+            </Ellipse>
+          </PartDraw>
+        </Group>
+        <PartDraw name="batt_efb" x="0" y="0" width="78" height="78" alpha="255">
+          <Variant mode="AMBIENT" target="alpha" value="0"/>
+          <Ellipse x="31" y="20" width="17" height="17">
+            <Stroke color="#767B80" thickness="1"/>
           </Ellipse>
         </PartDraw>
-      </Group>
-          <PartDraw name="ic_batt" x="0" y="0" width="456" height="456" alpha="255">
-            <Variant mode="AMBIENT" target="alpha" value="0"/>
-            <RoundRectangle x="216" y="392" width="24" height="13" cornerRadiusX="2" cornerRadiusY="2">
-              <Stroke color="#0682EB" thickness="1.5"/>
-            </RoundRectangle>
-            <Rectangle x="240" y="395" width="2.5" height="6">
-              <Fill color="#0682EB"/>
-            </Rectangle>
-            <Rectangle x="219" y="395" width="13" height="7">
-              <Fill color="#0682EB"/>
-            </Rectangle>
-          </PartDraw>
-          <PartDraw name="ic_batt_a" x="0" y="0" width="456" height="456" alpha="0">
-            <Variant mode="AMBIENT" target="alpha" value="255"/>
-            <RoundRectangle x="216" y="392" width="24" height="13" cornerRadiusX="2" cornerRadiusY="2">
-              <Stroke color="#FFFFFF" thickness="1.5"/>
-            </RoundRectangle>
-            <Rectangle x="240" y="395" width="2.5" height="6">
-              <Fill color="#FFFFFF"/>
-            </Rectangle>
-            <Rectangle x="219" y="395" width="13" height="7">
-              <Fill color="#FFFFFF"/>
-            </Rectangle>
-          </PartDraw>
-      <PartText name="battery_value" x="0" y="410" width="456" height="26" alpha="255">
-        <Text align="CENTER">
-          <Font family="Roboto" size="22" color="#FFFFFF" weight="EXTRA_LIGHT">
-            <Template>%d%%<Parameter expression="[BATTERY_PERCENT]"/></Template>
-          </Font>
-        </Text>
-      </PartText>
-    </Group>
+        <PartText name="battery_evalue" x="1" y="40" width="76" height="26" alpha="255">
+          <Text align="CENTER">
+            <Font family="Roboto" size="22" color="#FFFFFF" weight="EXTRA_LIGHT">--</Font>
+          </Text>
+        </PartText>
+      </Complication>
+    </ComplicationSlot>
     <DigitalClock x="0" y="0" width="456" height="456">
       <TimeText format="hh" hourFormat="12" align="CENTER" x="0" y="134" width="456" height="120">
         <Font family="Roboto" size="122" color="#FFFFFF" weight="THIN" width="CONDENSED"/>
@@ -3501,34 +3617,33 @@
         </Font>
       </Text>
     </PartText>
-    <!-- Weather circle at top: sun icon + current temperature. Temp comes from a
-         weather COMPLICATION (no WFF weather data source and no system weather
-         provider exist), so it is blank until a weather app is assigned as the
-         provider; on a configured watch it shows the temperature. -->
-    <!-- Weather at top: DIRECT WFF weather data sources (need format v2+). Sun
-         icon + current temperature; shows a placeholder until weather is
-         available. On the emulator the system weather provider supplies data. -->
-    <Group name="weather" x="0" y="0" width="456" height="456" alpha="255">
-      <PartDraw name="weather_circle" x="0" y="0" width="456" height="456" alpha="255">
+    <!-- Weather background layer: always-on live [WEATHER.*] sun + temperature.
+         WFF has no weather system provider, so the reassignable slot below
+         (slotId 4) defaults to EMPTY and draws nothing until assigned - letting
+         this weather show through out of the box. When a complication IS
+         assigned, the slot's SHORT_TEXT branch paints a black backdrop over
+         this layer first, so nothing peeks through. -->
+    <Group name="weather_bg" x="0" y="0" width="456" height="456" alpha="255">
+      <PartDraw name="weather_bg_circle" x="0" y="0" width="456" height="456" alpha="255">
         <Variant mode="AMBIENT" target="alpha" value="0"/>
         <Ellipse x="189" y="17" width="78" height="78">
           <Stroke color="#0682EB" thickness="1.15"/>
         </Ellipse>
       </PartDraw>
-      <PartImage name="ic_weather" x="210" y="26" width="36" height="36" tintColor="#0682EB" alpha="255">
+      <PartImage name="wbg_sun" x="212" y="28" width="31" height="31" tintColor="#0682EB" alpha="255">
         <Variant mode="AMBIENT" target="alpha" value="0"/>
         <Image resource="ic_weather"/>
       </PartImage>
-      <PartImage name="ic_weather_a" x="210" y="26" width="36" height="36" tintColor="#FFFFFF" alpha="0">
+      <PartImage name="wbg_sun_a" x="212" y="28" width="31" height="31" tintColor="#FFFFFF" alpha="0">
         <Variant mode="AMBIENT" target="alpha" value="255"/>
         <Image resource="ic_weather"/>
       </PartImage>
       <Condition>
         <Expressions>
-          <Expression name="wx"><![CDATA[[WEATHER.IS_AVAILABLE]]]></Expression>
+          <Expression name="wbg"><![CDATA[[WEATHER.IS_AVAILABLE]]]></Expression>
         </Expressions>
-        <Compare expression="wx">
-          <PartText name="weather_temp" x="189" y="63" width="78" height="22" alpha="255">
+        <Compare expression="wbg">
+          <PartText name="wbg_temp" x="189" y="63" width="78" height="22" alpha="255">
             <Text align="CENTER">
               <Font family="Roboto" size="22" color="#FFFFFF" weight="EXTRA_LIGHT">
                 <Template>%d&#176;<Parameter expression="[WEATHER.TEMPERATURE]"/></Template>
@@ -3537,7 +3652,7 @@
           </PartText>
         </Compare>
         <Default>
-          <PartText name="weather_temp_na" x="189" y="63" width="78" height="22" alpha="255">
+          <PartText name="wbg_temp_na" x="189" y="63" width="78" height="22" alpha="255">
             <Text align="CENTER">
               <Font family="Roboto" size="22" color="#FFFFFF" weight="EXTRA_LIGHT">--</Font>
             </Text>
@@ -3545,20 +3660,81 @@
         </Default>
       </Condition>
     </Group>
-    <!-- Tap targets: launch the matching app when a complication is tapped.
-         Transparent hit rectangles sized over each circle. Steps uses its own
-         complication default tap; weather has no WFF launch target. -->
-    <PartDraw name="heart_tap" x="318" y="190" width="97" height="97">
-      <Launch target="HEALTH_HEART_RATE"/>
-      <Rectangle x="0" y="0" width="97" height="97">
-        <Fill color="#00000000"/>
-      </Rectangle>
-    </PartDraw>
-    <PartDraw name="battery_tap" x="189" y="373" width="78" height="78">
-      <Launch target="BATTERY_STATUS"/>
-      <Rectangle x="0" y="0" width="78" height="78">
-        <Fill color="#00000000"/>
-      </Rectangle>
-    </PartDraw>
+    <ComplicationSlot name="weather" slotId="4" x="189" y="17" width="78" height="78"
+        supportedTypes="SHORT_TEXT" isCustomizable="TRUE" displayName="WEATHER">
+      <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SHORT_TEXT"/>
+      <BoundingOval x="0" y="0" width="78" height="78"/>
+      <Complication type="SHORT_TEXT">
+        <PartDraw name="weather_backdrop" x="0" y="0" width="78" height="78" alpha="255">
+          <Ellipse x="0" y="0" width="78" height="78">
+            <Fill color="#FF000000"/>
+          </Ellipse>
+        </PartDraw>
+        <Group name="weather_deco" x="0" y="0" width="78" height="78" alpha="255">
+          <Variant mode="AMBIENT" target="alpha" value="0"/>
+          <PartDraw name="weather_circle" x="0" y="0" width="78" height="78">
+            <Ellipse x="1" y="1" width="76" height="76">
+              <Stroke color="#0682EB" thickness="1.15"/>
+            </Ellipse>
+          </PartDraw>
+        </Group>
+        <Condition>
+          <Expressions>
+            <Expression name="wx_has_icon"><![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+          </Expressions>
+          <Compare expression="wx_has_icon">
+            <Group name="wx_icon_m" x="24" y="13" width="31" height="31" alpha="255" scaleX="0.85" scaleY="0.85" pivotX="0.5" pivotY="0.5">
+              <PartDraw name="wx_icon_fill_b" x="0" y="0" width="31" height="31" alpha="255" renderMode="SOURCE">
+                <Variant mode="AMBIENT" target="alpha" value="0"/>
+                <Rectangle x="0" y="0" width="31" height="31">
+                  <Fill color="#0682EB"/>
+                </Rectangle>
+              </PartDraw>
+              <PartDraw name="wx_icon_fill_w" x="0" y="0" width="31" height="31" alpha="0" renderMode="SOURCE">
+                <Variant mode="AMBIENT" target="alpha" value="255"/>
+                <Rectangle x="0" y="0" width="31" height="31">
+                  <Fill color="#FFFFFF"/>
+                </Rectangle>
+              </PartDraw>
+              <PartImage name="wx_icon_mask" x="0" y="0" width="31" height="31" renderMode="MASK">
+                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]"/>
+              </PartImage>
+            </Group>
+          </Compare>
+          <Default>
+            <PartDraw name="wx_icon_fb" x="0" y="0" width="78" height="78" alpha="255">
+              <Variant mode="AMBIENT" target="alpha" value="0"/>
+              <Ellipse x="31" y="20" width="17" height="17">
+                <Stroke color="#0682EB" thickness="1"/>
+              </Ellipse>
+            </PartDraw>
+            <PartDraw name="wx_icon_fb_a" x="0" y="0" width="78" height="78" alpha="0">
+              <Variant mode="AMBIENT" target="alpha" value="255"/>
+              <Ellipse x="31" y="20" width="17" height="17">
+                <Stroke color="#FFFFFF" thickness="1"/>
+              </Ellipse>
+            </PartDraw>
+          </Default>
+        </Condition>
+        <PartText name="weather_value" x="1" y="40" width="76" height="26" alpha="255">
+          <Text align="CENTER">
+            <Font family="Roboto" size="22" color="#FFFFFF" weight="EXTRA_LIGHT">
+              <Template>%s<Parameter expression="[COMPLICATION.TEXT]"/></Template>
+            </Font>
+          </Text>
+        </PartText>
+      </Complication>
+      <Complication type="EMPTY">
+        <PartDraw name="weather_empty_ph" x="0" y="0" width="78" height="78" alpha="0">
+          <Ellipse x="1" y="1" width="76" height="76">
+            <Stroke color="#767B80" thickness="1"/>
+          </Ellipse>
+        </PartDraw>
+      </Complication>
+    </ComplicationSlot>
+    <!-- Steps, heart, and battery are ComplicationSlots and handle their own
+         tap-to-launch (opening the assigned provider). Weather is a direct
+         [WEATHER.*] group; WFF has no weather launch target, so it is not
+         tappable. -->
   </Scene>
 </WatchFace>
