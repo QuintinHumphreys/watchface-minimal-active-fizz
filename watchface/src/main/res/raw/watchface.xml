@@ -3331,6 +3331,297 @@
     </Group>
     <!-- Steps slot enlarged to 96x96 (15% up) with content scaled to match;
          complication content is clipped to the slot, so the slot itself grows. -->
+    <Group name="icon_fizz" x="0" y="0" width="456" height="456" alpha="255">
+      <Variant mode="AMBIENT" target="alpha" value="0"/>
+      <PartDraw name="if_st0" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="201 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 1.832 + 6.08 ) )"/>
+        <Ellipse x="70.3" y="248.7" width="2.7" height="2.7">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st1" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="247 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.629 + 5.49 ) )"/>
+        <Ellipse x="106.4" y="216.0" width="2.8" height="2.8">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st2" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="202 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 3.737 + 5.82 ) )"/>
+        <Ellipse x="114.8" y="250.9" width="2.7" height="2.7">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st3" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="199 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.773 + 2.65 ) )"/>
+        <Ellipse x="102.0" y="218.4" width="1.7" height="1.7">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st4" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="235 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 4.089 + 2.55 ) )"/>
+        <Ellipse x="87.6" y="259.0" width="3.4" height="3.4">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st5" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="250 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.752 + 3.32 ) )"/>
+        <Ellipse x="105.8" y="264.0" width="2.1" height="2.1">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st6" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="250 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 4.065 + 4.06 ) )"/>
+        <Ellipse x="109.4" y="230.5" width="2.9" height="2.9">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st7" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="224 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 3.398 + 3.55 ) )"/>
+        <Ellipse x="82.3" y="253.2" width="2.6" height="2.6">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st8" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="198 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.896 + 6.09 ) )"/>
+        <Ellipse x="113.3" y="252.6" width="2.1" height="2.1">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st9" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="181 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.525 + 1.72 ) )"/>
+        <Ellipse x="97.5" y="237.4" width="2.2" height="2.2">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st10" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="217 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 4.579 + 3.0 ) )"/>
+        <Ellipse x="78.0" y="210.5" width="1.9" height="1.9">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st11" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="253 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 3.069 + 0.95 ) )"/>
+        <Ellipse x="104.0" y="228.6" width="2.7" height="2.7">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st12" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="194 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.591 + 0.16 ) )"/>
+        <Ellipse x="62.0" y="255.2" width="2.5" height="2.5">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st13" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="197 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 3.871 + 2.68 ) )"/>
+        <Ellipse x="84.8" y="209.7" width="1.6" height="1.6">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st14" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="244 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.941 + 3.13 ) )"/>
+        <Ellipse x="95.9" y="233.6" width="2.5" height="2.5">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st15" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="233 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.273 + 5.22 ) )"/>
+        <Ellipse x="99.3" y="219.0" width="2.3" height="2.3">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st16" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="205 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.73 + 2.86 ) )"/>
+        <Ellipse x="112.4" y="240.1" width="2.0" height="2.0">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st17" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="181 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.626 + 1.23 ) )"/>
+        <Ellipse x="65.3" y="252.9" width="2.3" height="2.3">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st18" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="242 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.964 + 2.66 ) )"/>
+        <Ellipse x="86.8" y="271.0" width="2.6" height="2.6">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st19" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="202 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 4.217 + 2.67 ) )"/>
+        <Ellipse x="78.2" y="219.5" width="3.2" height="3.2">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st20" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="217 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 3.98 + 4.91 ) )"/>
+        <Ellipse x="98.6" y="236.7" width="3.0" height="3.0">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st21" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="205 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 3.687 + 2.74 ) )"/>
+        <Ellipse x="70.0" y="242.1" width="2.7" height="2.7">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st22" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="225 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 4.522 + 0.97 ) )"/>
+        <Ellipse x="115.4" y="214.6" width="2.8" height="2.8">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_st23" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="230 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.698 + 2.07 ) )"/>
+        <Ellipse x="83.7" y="228.1" width="3.1" height="3.1">
+          <Fill color="#0682EB"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr0" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="240 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 3.826 + 0.92 ) )"/>
+        <Ellipse x="360.3" y="220.5" width="1.7" height="1.7">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr1" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="196 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 1.91 + 3.64 ) )"/>
+        <Ellipse x="359.8" y="207.7" width="2.6" height="2.6">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr2" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="209 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 3.549 + 3.18 ) )"/>
+        <Ellipse x="363.1" y="209.7" width="2.5" height="2.5">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr3" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="202 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 3.239 + 5.25 ) )"/>
+        <Ellipse x="398.5" y="244.6" width="2.4" height="2.4">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr4" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="213 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.24 + 3.5 ) )"/>
+        <Ellipse x="343.2" y="258.1" width="2.0" height="2.0">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr5" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="228 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 1.816 + 2.16 ) )"/>
+        <Ellipse x="346.6" y="262.5" width="3.4" height="3.4">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr6" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="212 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 3.193 + 5.42 ) )"/>
+        <Ellipse x="382.4" y="214.5" width="2.2" height="2.2">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr7" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="208 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.23 + 2.28 ) )"/>
+        <Ellipse x="350.2" y="255.3" width="2.2" height="2.2">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr8" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="213 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.383 + 2.02 ) )"/>
+        <Ellipse x="387.7" y="249.7" width="1.6" height="1.6">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr9" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="244 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.42 + 4.08 ) )"/>
+        <Ellipse x="340.9" y="227.4" width="2.4" height="2.4">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr10" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="253 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 3.528 + 3.64 ) )"/>
+        <Ellipse x="379.6" y="209.2" width="2.7" height="2.7">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr11" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="201 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 3.191 + 3.63 ) )"/>
+        <Ellipse x="385.5" y="229.2" width="2.1" height="2.1">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr12" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="202 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 3.378 + 0.38 ) )"/>
+        <Ellipse x="358.1" y="266.4" width="1.8" height="1.8">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr13" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="227 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 3.334 + 1.28 ) )"/>
+        <Ellipse x="375.2" y="243.9" width="3.0" height="3.0">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr14" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="188 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 3.297 + 6.0 ) )"/>
+        <Ellipse x="377.3" y="263.7" width="2.8" height="2.8">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr15" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="217 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 4.257 + 5.64 ) )"/>
+        <Ellipse x="383.2" y="263.7" width="2.9" height="2.9">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr16" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="184 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 3.892 + 0.72 ) )"/>
+        <Ellipse x="377.3" y="254.4" width="2.4" height="2.4">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr17" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="230 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.213 + 0.29 ) )"/>
+        <Ellipse x="368.5" y="240.6" width="3.4" height="3.4">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr18" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="205 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 3.811 + 1.83 ) )"/>
+        <Ellipse x="373.2" y="249.8" width="2.5" height="2.5">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr19" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="221 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 4.378 + 5.86 ) )"/>
+        <Ellipse x="391.8" y="227.1" width="1.9" height="1.9">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr20" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="240 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 4.463 + 3.7 ) )"/>
+        <Ellipse x="342.7" y="234.5" width="1.6" height="1.6">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr21" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="232 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.033 + 4.35 ) )"/>
+        <Ellipse x="370.2" y="243.4" width="2.1" height="2.1">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr22" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="252 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 4.328 + 0.31 ) )"/>
+        <Ellipse x="331.6" y="237.1" width="2.6" height="2.6">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+      <PartDraw name="if_hr23" x="0" y="0" width="456" height="456" alpha="255">
+        <Transform target="alpha" value="191 * ( 0.5 + 0.5 * sin( ([SECONDS_IN_DAY] + [MILLISECOND] / 1000) * 2.18 + 2.79 ) )"/>
+        <Ellipse x="375.3" y="230.4" width="3.2" height="3.2">
+          <Fill color="#F26C21"/>
+        </Ellipse>
+      </PartDraw>
+    </Group>
     <ComplicationSlot name="steps" slotId="1" x="41" y="189" width="98" height="98"
         supportedTypes="SHORT_TEXT" isCustomizable="TRUE" displayName="STEPS">
       <DefaultProviderPolicy defaultSystemProvider="STEP_COUNT" defaultSystemProviderType="SHORT_TEXT"/>
@@ -3353,13 +3644,13 @@
               <PartDraw name="steps_icon_fill_b" x="0" y="0" width="39" height="39" alpha="255" renderMode="SOURCE">
                 <Variant mode="AMBIENT" target="alpha" value="0"/>
                 <Rectangle x="0" y="0" width="39" height="39">
-                  <Fill color="#0682EB"/>
+                  <Fill color="#800682EB"/>
                 </Rectangle>
               </PartDraw>
               <PartDraw name="steps_icon_fill_w" x="0" y="0" width="39" height="39" alpha="0" renderMode="SOURCE">
                 <Variant mode="AMBIENT" target="alpha" value="255"/>
                 <Rectangle x="0" y="0" width="39" height="39">
-                  <Fill color="#FFFFFF"/>
+                  <Fill color="#80FFFFFF"/>
                 </Rectangle>
               </PartDraw>
               <PartImage name="steps_icon_mask" x="0" y="0" width="39" height="39" renderMode="MASK">
@@ -3435,13 +3726,13 @@
               <PartDraw name="heart_icon_fill_o" x="0" y="0" width="39" height="39" alpha="255" renderMode="SOURCE">
                 <Variant mode="AMBIENT" target="alpha" value="0"/>
                 <Rectangle x="0" y="0" width="39" height="39">
-                  <Fill color="#F26C21"/>
+                  <Fill color="#80F26C21"/>
                 </Rectangle>
               </PartDraw>
               <PartDraw name="heart_icon_fill_w" x="0" y="0" width="39" height="39" alpha="0" renderMode="SOURCE">
                 <Variant mode="AMBIENT" target="alpha" value="255"/>
                 <Rectangle x="0" y="0" width="39" height="39">
-                  <Fill color="#FFFFFF"/>
+                  <Fill color="#80FFFFFF"/>
                 </Rectangle>
               </PartDraw>
               <PartImage name="heart_icon_mask" x="0" y="0" width="39" height="39" renderMode="MASK">
@@ -3520,13 +3811,13 @@
               <PartDraw name="batt_icon_fill_b" x="0" y="0" width="31" height="31" alpha="255" renderMode="SOURCE">
                 <Variant mode="AMBIENT" target="alpha" value="0"/>
                 <Rectangle x="0" y="0" width="31" height="31">
-                  <Fill color="#0682EB"/>
+                  <Fill color="#800682EB"/>
                 </Rectangle>
               </PartDraw>
               <PartDraw name="batt_icon_fill_w" x="0" y="0" width="31" height="31" alpha="0" renderMode="SOURCE">
                 <Variant mode="AMBIENT" target="alpha" value="255"/>
                 <Rectangle x="0" y="0" width="31" height="31">
-                  <Fill color="#FFFFFF"/>
+                  <Fill color="#80FFFFFF"/>
                 </Rectangle>
               </PartDraw>
               <PartImage name="batt_icon_mask" x="0" y="0" width="31" height="31" renderMode="MASK">
@@ -3687,13 +3978,13 @@
               <PartDraw name="wx_icon_fill_b" x="0" y="0" width="31" height="31" alpha="255" renderMode="SOURCE">
                 <Variant mode="AMBIENT" target="alpha" value="0"/>
                 <Rectangle x="0" y="0" width="31" height="31">
-                  <Fill color="#0682EB"/>
+                  <Fill color="#800682EB"/>
                 </Rectangle>
               </PartDraw>
               <PartDraw name="wx_icon_fill_w" x="0" y="0" width="31" height="31" alpha="0" renderMode="SOURCE">
                 <Variant mode="AMBIENT" target="alpha" value="255"/>
                 <Rectangle x="0" y="0" width="31" height="31">
-                  <Fill color="#FFFFFF"/>
+                  <Fill color="#80FFFFFF"/>
                 </Rectangle>
               </PartDraw>
               <PartImage name="wx_icon_mask" x="0" y="0" width="31" height="31" renderMode="MASK">
