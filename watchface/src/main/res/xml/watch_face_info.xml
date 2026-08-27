@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Watch face metadata for the picker/editor. Auto-detected by the WFF runtime
+  by filename convention (res/xml/watch_face_info.xml). Preview is required.
+  See: https://developer.android.com/training/wearables/wff/setup#declare-metadata
+-->
+<WatchFaceInfo>
+    <Preview value="@drawable/preview" />
+    <Editable value="true" />
+</WatchFaceInfo>

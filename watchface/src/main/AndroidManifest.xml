@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--
+  Manifest for the declarative Watch Face Format (WFF) face "Minimal Active Fizz".
+  No Kotlin/Java code: hasCode is required to be false for WFF. The face is
+  res/raw/watchface.xml; the system WFF engine renders it. Shape mirrors the
+  official google wear-os-samples WatchFaceFormat sample.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
+    <!-- Required for the direct [HEART_RATE] WFF data source. -->
+    <uses-permission android:name="android.permission.BODY_SENSORS" />
+
+    <application
+        android:label="@string/watch_face_name"
+        android:hasCode="false">
+
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <!-- WFF schema version this face targets. v2 for the direct weather data
+             sources ([WEATHER.TEMPERATURE] etc.), which do not exist in v1. -->
+        <property
+            android:name="com.google.wear.watchface.format.version"
+            android:value="2" />
+    </application>
+</manifest>

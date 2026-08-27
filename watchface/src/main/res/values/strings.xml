@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">Minimal Active Fizz</string>
+    <string name="watch_face_name">Minimal Active Fizz</string>
+    <string name="watch_face_description">Minimal digital face with a blue/orange two-tone motif, stacked hours over minutes, framing arcs, and steps/heart/battery data. Active-only procedural particle fizz background; burn-in-safe ambient.</string>
+</resources>
