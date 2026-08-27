@@ -15,23 +15,26 @@ thin ring. The top circle shows live weather until you assign something else.
 ![active](preview/watch-active.png)
 ![ambient](preview/watch-ambient.png)
 
-## Install it (easiest)
+## How to install - pick the guide that fits you
 
-Hand this whole folder (or the release URL) to a coding agent and say:
-**"Follow AGENT.md to install this watch face on my Pixel Watch."**
+A prebuilt, debug-signed APK (`active-fizz.apk`) is included, so no building is
+required either way - you just need `adb`.
 
-The agent needs only `adb` (Android platform-tools) and your watch in Wireless
-debugging mode - see `AGENT.md` for the exact steps. A prebuilt APK
-(`active-fizz.apk`) is included, so no build is required.
+- **Installing it yourself (a person):** follow **[`INSTALL.md`](INSTALL.md)**.
+  It walks you through installing `adb`, turning on Wireless debugging, and the
+  exact commands, with troubleshooting.
+- **Letting an AI coding agent do it:** hand the agent this folder (or the
+  release URL) and say *"Follow AGENT.md to install this watch face on my
+  Pixel Watch."* See **[`AGENT.md`](AGENT.md)**.
 
-To do it yourself: enable Wireless debugging on the watch, then
-`adb pair`/`adb connect`/`adb install -r active-fizz.apk`, and pick Minimal Active Fizz from the
-watch-face carousel. Full commands are in `AGENT.md`.
+Either way it ends the same: pick **Minimal Active Fizz** from the watch-face
+carousel (long-press the current face).
 
 ## Contents
 
 - `active-fizz.apk` - prebuilt, debug-signed. Sideload to a Wear OS 4+ watch.
-- `AGENT.md` - step-by-step setup + install instructions for an AI agent.
+- `INSTALL.md` - step-by-step install guide for a **person**.
+- `AGENT.md` - install instructions written for an **AI coding agent**.
 - `watchface/` - the full source (Watch Face Format XML + Gradle project) if you
   want to rebuild or customize.
 - `preview/` - screenshots (active + ambient).
